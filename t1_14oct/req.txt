@@ -1,0 +1,10 @@
+6 months
+
+0. typing speed -> 35-40 wpm -> 2 month 20 min/day -> 50 wpm
+1. git -> version control -> https://github.com/ -> gitlab
+2. hard skill -> flutter
+3. logical thinking -> problem solving
+4. previous project
+5. other -> vscode, vim, chatgpt, copilot, regex
+
+

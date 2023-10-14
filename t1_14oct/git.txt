@@ -1,0 +1,91 @@
+- commit
+- push
+- pull
+- merge
+- new branch
+- check out old version
+
+------------
+cd ./temp 
+git init
+
+
+
+
+-------
+
+  code        ready        myCom        server (github)     download
+
+ change ---> staged ---> committed ---> push              ---> pull 
+
+1. git init
+2. write code
+3. git add temp.txt
+4. git commit -m "first commit"
+5. create git repository on github.com
+6. 
+```
+git remote add origin https://github.com/s0ngkran/test_git.git
+git branch -M main
+git push -u origin main
+```
+
+
+echo "test" >> temp.txt
+
+git init
+git status
+
+git add temp.txt
+git status
+
+git commit -m "my first"
+
+git config --global user.email "mail@gmail.com"
+git config --global user.name "s0ngkran"
+
+git config --global --list
+git commit -m "my first"
+:wq
+
+git remote add origin url....
+git branch -M main
+git push -u origin main
+
+git push
+
+git restore --staged temp.txt
+git status
+
+git log
+git log --oneline --author
+ 
+
+git graph
+
+code .
+
+change
+staged
+commited
+pushed
+
+version six -> commit
+version eight -> commit
+
+checkout to six 
+change six to six one
+
+merge six one to eight
+
+
+cherry pick
+rebase
+merge
+
+git1 
+ - git11 (submodule)
+ - git12 (submodule)
+ - git13 (submodule)
+
+git tree

@@ -1,0 +1,21 @@
+install flutter and dart
+learn typing -> 20 mins -> 2 months
+learn dart programming
+ - 1 hour -> 1 day
+ - variables
+ - if else; if(true){}else if{} else {}
+ - for loop; for(var i=0; i<10; i++){}
+ - while loop; while(true){}
+ - function
+ ---------
+ - List, Map, Set
+ - List.map(...)
+ - List.forEach(...)
+ - OOP
+
+Question
+1. given a list of numbers, find the sum of all the numbers
+2. given a list of numbers, find the sum of all the even numbers
+3. given a list of numbers, find the sum of all the odd numbers
+4. given a list of numbers, find the sum of all the numbers that are divisible by 3
+
