@@ -7,4 +7,3 @@
 4. previous project
 5. other -> vscode, vim, chatgpt, copilot, regex
 
-

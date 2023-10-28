@@ -1,0 +1,7 @@
+flutter ui layout these webs
+www.docker.com -> no scrolling
+www.docker.com/blog/ -> no scrolling
+www.youtube.com -> with scrolling
+www.twitch.com -> with scrolling
+
+next class sat -> 13.30

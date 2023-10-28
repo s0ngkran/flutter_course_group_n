@@ -1,0 +1,21 @@
+version 6.1
+
+1. version six -> commit main
+2. version eight -> commit main
+3. checkout to six  -> main
+4. change six to six one -> f3
+5. merge six one to eight -> main
+
+git branch -d f3
+git branch f3   #### create branch f3
+git merge f3
+graph 
+git log --graph 
+
+git branch new_branch_name
+
+f2 -> pull request (reviewed)
+f1 -> pull request (reviewed)
+main    
+
+

@@ -1,4 +1,4 @@
-main(){
+main() {
   print('');
   print('hello');
   print('');
