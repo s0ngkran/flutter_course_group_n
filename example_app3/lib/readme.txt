@@ -36,5 +36,4 @@ Todo list app
 4. optional: add text with icon
 
 List<String> todos =[];
-
 todos.add("hello");

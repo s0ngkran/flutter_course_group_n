@@ -25,6 +25,9 @@ class MiniCalculatorCtl extends GetxController {
   }
 
   void equal() {
+    if (display.value == 'xxx') {
+      return;
+    }
     // if display start with '+' or '-', remove it
     if (display.value.startsWith('+') || display.value.startsWith('-')) {
       display.value = display.value.substring(1);

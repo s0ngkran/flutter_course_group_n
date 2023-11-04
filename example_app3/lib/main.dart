@@ -6,6 +6,7 @@ import 'example_for_text_form_field.dart';
 import 'modules/home/home_scr.dart';
 import 'modules/home/home_scr_stateful.dart';
 import 'modules/mini_calculator/mini_calculator_scr.dart';
+import 'modules/todo/todo_scr.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       // home: ExampleForTextFormField();
       // home: HomeScr(),
       // home: HomeScrFul(),
-      home: MiniCalculatorScr(),
+      // home: MiniCalculatorScr(),
+      home: TodoScr(),
     );
   }
 }

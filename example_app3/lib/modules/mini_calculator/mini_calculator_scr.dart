@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'widgets/btn_widget.dart';
+import 'widgets/display_widget.dart';
+import 'widgets/num_widget.dart';
 
 class MiniCalculatorScr extends StatelessWidget {
   const MiniCalculatorScr({super.key});
@@ -15,24 +17,32 @@ class MiniCalculatorScr extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(height: 100),
+          const Spacer(),
+          const Text(
+            'Mini Calculator',
+            // size 20
+            style: TextStyle(fontSize: 30),
+          ),
           Obx(() {
             return Column(
               children: [
-                Text(
-                    //
-                    c.display.value,
-                    // fontsize 20
-                    style: const TextStyle(fontSize: 20)),
+                DisplayWidget(text: c.display.value),
               ],
             );
           }),
-          Row(
+          Wrap(
             children: <Widget>[
               // num 1, 2, 3 with inkwell
-              for (String numStr in ['1', '2', '3'])
+              for (String numStr in List.generate(10, (index) => index.toString()).reversed)
                 //
-                BtnWidget(
+                // BtnWidget(
+                //   text: numStr,
+                //   onTap: () {
+                //     c.pressNum(numStr);
+                //   },
+                //   isNum: true,
+                // ),
+                NumWidget(
                     text: numStr,
                     onTap: () {
                       c.pressNum(numStr);
@@ -68,6 +78,7 @@ class MiniCalculatorScr extends StatelessWidget {
               c.clear();
             },
           ),
+          const Spacer(),
         ],
       ),
     );
