@@ -1,0 +1,4 @@
+flutter ui
+more detail -> color, curved
+
+next class sat -> 13.30

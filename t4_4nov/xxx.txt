@@ -1,0 +1,10 @@
+
+1. input + form
+2. state management (GetX)
+
+
+TextField() -> simple
+TextFormField() + Form() -> production
+
+
+
