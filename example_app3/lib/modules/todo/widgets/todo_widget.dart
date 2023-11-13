@@ -16,8 +16,8 @@ class TodoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: todo.icon ?? const Icon(Icons.home),
-      title: Text(todo.title),
+      leading: Icon(todo.icon),
+      title: Text('${todo.title} ind=>${todo.id}'),
       trailing: InkWell(
         onTap: onDelete,
         child: const Icon(

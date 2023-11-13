@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Data {
   int id;
   String title;
-  Icon? icon;
+  IconData? icon;
 
   Data({
     required this.id,

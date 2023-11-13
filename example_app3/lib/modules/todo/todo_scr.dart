@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'data.dart';
 import 'todo_ctl.dart';
+import 'widgets/my_icon_widget.dart';
 import 'widgets/todo_widget.dart';
 
 class TodoScr extends StatelessWidget {
@@ -14,7 +15,6 @@ class TodoScr extends StatelessWidget {
     GlobalKey<FormState> kf = GlobalKey<FormState>();
     Get.put(TodoCtl());
     var c = Get.find<TodoCtl>();
-    Icon? icon;
     return Scaffold(
       appBar: AppBar(
         title: const Text('TodoScr'),
@@ -23,7 +23,7 @@ class TodoScr extends StatelessWidget {
         onPressed: () {
           Get.defaultDialog(
             onConfirm: () {
-              c.addTodo(title.text, icon);
+              c.addTodo(title.text);
               title.text = '';
               Get.back();
             },
@@ -40,6 +40,29 @@ class TodoScr extends StatelessWidget {
                       hintText: 'Enter title: ...',
                     ),
                   ),
+                  Obx(() {
+                    return Row(
+                      children: [
+                        for (IconData iconData in [
+                          Icons.home,
+                          Icons.work,
+                          Icons.school,
+                        ])
+                          Column(
+                            children: [
+                              Text(c.currentId.toString()),
+                              MyIcon(
+                                icon: iconData,
+                                isActive: c.currentIcon.value == iconData,
+                                onTap: () {
+                                  c.setIcon(iconData);
+                                },
+                              ),
+                            ],
+                          ),
+                      ],
+                    );
+                  }),
                 ],
               ),
             ),
@@ -54,10 +77,13 @@ class TodoScr extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                    onPressed: () {
-                      c.clear();
-                    },
-                    child: Text('clear')),
+                  onPressed: () {
+                    c.clear();
+                  },
+                  child: Text(
+                    'clear',
+                  ),
+                ),
               ],
             ),
             Obx(() {
@@ -92,7 +118,8 @@ class TodoScr extends StatelessWidget {
                         tc.text = todo.title;
                         Get.defaultDialog(
                           onConfirm: () {
-                            c.editAt(todo.id, tc.text, icon);
+                            // TODO:
+                            c.editAt(todo.id, tc.text, null);
                             Get.back();
                           },
                           onCancel: () {

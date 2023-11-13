@@ -10,14 +10,36 @@ class TodoCtl extends GetxController {
     Data(id: -1, title: 'add your todo here...'),
   ].obs;
   var currentId = 0;
+  // var currentIconId = 0.obs;
+  var currentIcon = Rxn<IconData>(null);
 
-  addTodo(String title, Icon? icon) {
-    todos.add(Data(id: currentId, title: title, icon: icon));
+  addTodo(String title) {
+    currentId++;
+    todos.add(Data(
+      id: currentId,
+      title: title,
+      icon: currentIcon.value,
+    ));
+    //Icons.home -> iconData
+    // Icon(Icons.home)
   }
 
   removeAt(int index) {
+    // remove todo by id
+    todos.removeWhere((element) => element.id == index);
+    print('index ${index}\n');
+
+    // print(todos);
+    // print each todo
+    todos.forEach((element) {
+      // print all fields
+      print(element.id);
+      print(element.title);
+      print(element.icon);
+      print('\n');
+    });
     // fix here
-    todos.removeAt(index);
+    // todos.removeAt(index);
   }
 
   editAt(int index, String title, Icon? icon) {
@@ -25,11 +47,15 @@ class TodoCtl extends GetxController {
     // find todo by id
     var todo = todos.firstWhere((element) => element.id == index);
     todo.title = title;
-    todo.icon = icon;
+    // todo.icon = icon;
     todos.refresh();
   }
 
   clear() {
     todos.clear();
+  }
+
+  void setIcon(IconData iconData) {
+    currentIcon.value = iconData;
   }
 }
