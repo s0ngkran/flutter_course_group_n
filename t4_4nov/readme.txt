@@ -2,11 +2,8 @@
 1. input + form
 2. state management (GetX)
 
-
 TextField() -> simple
 TextFormField() + Form() -> production
-
-
 
 //// note
 
@@ -16,9 +13,6 @@ TextFormField() + Form() -> production
 
 
 ui -> textField, submitBtn, showText
-
-
-
 
 textField, 
 submitBtn, 

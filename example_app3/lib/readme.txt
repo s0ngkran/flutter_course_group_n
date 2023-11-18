@@ -37,3 +37,19 @@ Todo list app
 
 List<String> todos =[];
 todos.add("hello");
+
+
+
+
+1. Get.toNamed('/todo')
+2. build() -> building
+3. onInit() of ctl
+
+1. Get.back()
+2. onClose()
+3. kill ctl
+
+
+
+start -------------> endbuid -> frame
+  r  b   g   r    b

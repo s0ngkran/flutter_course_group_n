@@ -11,10 +11,28 @@ class TodoScr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('build...');
+    for (int i = 0; i < 30; i++) {
+      print('build ${i}');
+    }
     TextEditingController title = TextEditingController();
     GlobalKey<FormState> kf = GlobalKey<FormState>();
-    Get.put(TodoCtl());
+    // Get.put(TodoCtl());
     var c = Get.find<TodoCtl>();
+
+    Future.delayed(
+      Duration.zero,
+      () {
+        print('after build delay zero');
+      },
+    );
+
+    // 1, 2, 3, 4, 5
+
+    // postFrame call
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      print('after build post frame');
+    });
     return Scaffold(
       appBar: AppBar(
         title: const Text('TodoScr'),
@@ -73,22 +91,37 @@ class TodoScr extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    c.clear();
-                  },
-                  child: Text(
-                    'clear',
+            Builder(builder: (context) {
+              WidgetsBinding.instance.addPostFrameCallback(
+                (_) {
+                  print('post frame in center');
+                  c.todos.value = [
+                    Data(id: -1, title: 'add your todo here...'),
+                  ];
+                  c.todos.refresh();
+                  print('done todos updated');
+                },
+              );
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      c.clear();
+                    },
+                    child: Text(
+                      'clear',
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              );
+            }),
             Obx(() {
+              print('obx building');
               return Column(
                 children: [
+                  Text(c.t1.toString()),
+                  Text(c.t2.toString()),
                   // ignore: invalid_use_of_protected_member
                   for (Data todo in c.todos.value)
                     TodoWidget(

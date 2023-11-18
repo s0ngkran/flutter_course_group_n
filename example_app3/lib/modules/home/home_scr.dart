@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../app_routes.dart';
 import 'home_ctl.dart';
 
 class HomeScr extends StatelessWidget {
@@ -9,7 +10,7 @@ class HomeScr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('build........');
-    Get.put(HomeCtl());
+    // Get.put(HomeCtl());
     var c = Get.find<HomeCtl>();
     GlobalKey<FormState> kf = GlobalKey<FormState>();
     var nameCon = TextEditingController();
@@ -22,6 +23,16 @@ class HomeScr extends StatelessWidget {
         child: Column(
           children: [
             FlutterLogo(),
+            // btn
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed(Routes.todo);
+              },
+              child: Text(
+                'todo',
+              ),
+            ),
+
             Form(
               key: kf,
               child: Column(
@@ -43,7 +54,13 @@ class HomeScr extends StatelessWidget {
                 print('bulid obx...');
                 return Column(
                   children: [
-                    Text(c.cnt.toString()),
+                    Text(
+                      c.cnt.toString(),
+                      // size 20
+                      style: TextStyle(
+                        fontSize: 70,
+                      ),
+                    ),
                     if (c.name.value != '')
                       //
                       Row(

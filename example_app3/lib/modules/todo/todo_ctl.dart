@@ -9,9 +9,38 @@ class TodoCtl extends GetxController {
     Data(id: -2, title: 'add your todo here...'),
     Data(id: -1, title: 'add your todo here...'),
   ].obs;
+
+  // Rx<List<Data>?> todos2 = null;
+
+  // RxList -> rebuild when "self.value = ..."
+  // Rx<List> -> rebuild when self.refresh()
+  // -> ignore self.value = ...
+  var t1 = RxList<String>(['hello1']);
+  var t2 = Rx<List<String>>(['hello2']);
+  // t.value.add()
+  // t.add()
+
   var currentId = 0;
   // var currentIconId = 0.obs;
   var currentIcon = Rxn<IconData>(null);
+
+  @override
+  onInit() {
+    print('on init ctl');
+    for (int i = 0; i < 30; i++) {
+      print('onInt ${i}');
+    }
+  }
+
+  @override
+  onReady() {
+    print('on ready ctl');
+  }
+
+  @override
+  onClose() {
+    print('on close ctl');
+  }
 
   addTodo(String title) {
     currentId++;
