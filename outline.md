@@ -51,8 +51,8 @@ api
  -> graphql
  -> freezed, code gen
  -> handle error -> either-type
- -> caching
- -> lazy loading 
+ -> caching -> getStorage
+ -> lazy loading -> getStorage 
 
 tool 
  -> debug console
