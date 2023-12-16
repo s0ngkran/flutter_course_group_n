@@ -1,11 +1,15 @@
 import 'dart:convert';
 
 import 'package:example_app3/data/juserf.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:get/get.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../../consts/enums.dart';
 import '../../data/user_model.dart';
+import '../../main.dart';
+import '../../services/api_repository.dart';
 
 class JsonPlaceholderCtl extends GetxController {
   // static JsonPlaceholderCtl get to => Get.find();
@@ -55,7 +59,7 @@ class JsonPlaceholderCtl extends GetxController {
   }
 
   call2() async {
-    jdata.add(  Juserf(name: ''));
+    jdata.add(const Juserf(name: ''));
     String path = 'https://jsonplaceholder.typicode.com/users/${cnt.value}';
     Uri uri = Uri.parse(path);
     try {
@@ -74,6 +78,40 @@ class JsonPlaceholderCtl extends GetxController {
       Get.snackbar('error occurred', e.toString());
       data.removeLast();
     }
+  }
+
+  // // TODO: move to repository
+  // Future<Either<ErrorGetUser, UserModel>> apiGetTodo(int id) async {
+  //   String path = 'https://jsonplaceholder.typicode.com/todos/$id';
+  //   Uri uri = Uri.parse(path);
+  //   try {
+  //     http.Response res = await http.get(uri);
+  //     String body = res.body;
+  //     UserModel user = UserModel.fromRawJson(body);
+  //     return Right(user);
+  //   } catch (e) {
+  //     String error = e.toString();
+  //     if (error == 'abc') {
+  //       return const Left(ErrorGetUser.abc);
+  //     } else if (error == 'def') {
+  //       return const Left(ErrorGetUser.def);
+  //     }
+  //     return const Left(ErrorGetUser.unknown);
+  //   }
+  // }
+
+  Future<Either<ErrorGetTodo, UserModel>> call3() async {
+
+    int id = cnt.value;
+    data.add(UserModel(title: ''));
+    Either<ErrorGetTodo, UserModel> res = await ApiRepository.fetchTodo(id);
+    data.removeLast();
+    if (res.isRight()) {
+      UserModel user = res.getRight().toNullable()!;
+      data.add(user);
+      cnt.value = cnt.value + 1;
+    }
+    return res;
   }
 }
 
