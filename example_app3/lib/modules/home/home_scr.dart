@@ -1,3 +1,4 @@
+import 'package:auto_size_text_field/auto_size_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,7 @@ class HomeScr extends StatelessWidget {
     GlobalKey<FormState> kf = GlobalKey<FormState>();
     var nameCon = TextEditingController();
     var count = c.cnt.value;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('HomeScr'),
@@ -24,6 +26,7 @@ class HomeScr extends StatelessWidget {
           children: [
             FlutterLogo(),
             // btn
+            // AutoSizeTextField(),
             ElevatedButton(
               onPressed: () {
                 Get.toNamed(Routes.todo);
@@ -32,7 +35,6 @@ class HomeScr extends StatelessWidget {
                 'todo',
               ),
             ),
-
             Form(
               key: kf,
               child: Column(
@@ -78,13 +80,18 @@ class HomeScr extends StatelessWidget {
               }),
             ),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 // validate form
-                if (kf.currentState!.validate()) {
-                  c.name.value = nameCon.text;
-                  c.cnt++;
-                  print(c.cnt.value);
-                }
+                print('-----bef');
+                 2.delay(() => print('...done delay'));
+                // await Future.delayed(Duration(seconds: 1));
+                // await Future.delayed(1.seconds);
+                print('aft');
+                // if (kf.currentState!.validate()) {
+                //   c.name.value = nameCon.text;
+                //   c.cnt++;
+                //   print(c.cnt.value);
+                // }
               },
               child: Text(
                 'submit',
@@ -97,10 +104,36 @@ class HomeScr extends StatelessWidget {
               child: Text(
                 'clear',
               ),
-            )
+            ),
+            // MyTextField('username'),
+            // MyTextField('password'),
+
+            // MyText2()
           ],
         ),
       ),
     );
   }
+}
+
+class MyText2 extends StatelessWidget {
+  const MyText2({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    // run something
+    return AutoSizeTextField(
+      minFontSize: 19,
+    ); // build
+  }
+}
+
+class MyTextField extends AutoSizeTextField {
+  MyTextField(String hint)
+      : super(
+          // placeholder: hint,
+          minFontSize: 18,
+        ); // build
 }

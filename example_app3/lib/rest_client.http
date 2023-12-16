@@ -1,0 +1,41 @@
+GET https://jsonplaceholder.typicode.com/todos/1 HTTP/1.1
+
+###
+GET https://jsonplaceholder.typicodex.com/todos/2 HTTP/1.1
+###
+GET https://jsonplaceholder.typicode.com/users/2 HTTP/1.1
+###
+#
+
+1. login -> john + 1234
+-> 175hoj
+
+2. movies -> 175hoj
+-> [movie1, mov2, mov3]
+
+2.1 movies -> 175hoj + page=2
+-> [movie4, mov5, mov6]
+2.2 movies -> 175hoj + page=3
+-> [movie7, mov8, mov9]
+
+3. get movie 1 -> 175hoj
+-> movie1
+
+4. stream mov1 -> 175hoj
+-> [0,1] from serv
+-> [1,2] from serv
+-> [2,3] from serv
+-> pause from user
+
+todo list offline
+1. pass
+2. save to local storge (db)
+
+todo list online
+1. register -> jhonne+1234
+2. login
+3. list todos
+4. add todo -> save to server
+5. edit todo -> edit something on server
+
+

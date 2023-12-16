@@ -11,6 +11,7 @@ import 'modules/awesome_widget/awesome_widget_scr.dart';
 import 'modules/home/home_ctl.dart';
 import 'modules/home/home_scr.dart';
 import 'modules/home/home_scr_stateful.dart';
+import 'modules/json_placeholder/json_placeholder_ctl.dart';
 import 'modules/mini_calculator/mini_calculator_scr.dart';
 import 'modules/todo/todo_ctl.dart';
 import 'modules/todo/todo_scr.dart';
@@ -31,6 +32,7 @@ home + homectl
 HomeCtl get home => Get.find<HomeCtl>();
 TodoCtl get todo => Get.find<TodoCtl>();
 AppCtl get app => Get.find<AppCtl>();
+JsonPlaceholderCtl get j => Get.find<JsonPlaceholderCtl>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -42,7 +44,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       getPages: AppPages.routes,
-      initialRoute: Routes.home,
+      // initialRoute: Routes.home,
+      initialRoute: Routes.json,
 
       // theme: ThemeData(
       //     colorScheme: const ColorScheme(

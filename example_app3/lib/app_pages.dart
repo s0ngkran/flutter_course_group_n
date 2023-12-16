@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'app_routes.dart';
 import 'modules/home/home_ctl.dart';
 import 'modules/home/home_scr.dart';
+import 'modules/json_placeholder/json_placeholder_ctl.dart';
+import 'modules/json_placeholder/json_placeholder_scr.dart';
 import 'modules/todo/todo_ctl.dart';
 import 'modules/todo/todo_scr.dart';
 
@@ -29,6 +31,17 @@ class AppPages {
         () {
           return Get.lazyPut(
             () => TodoCtl(),
+          );
+        },
+      ),
+    ),
+    GetPage(
+      name: Routes.json,
+      page: () => const JsonPlaceholderScr(),
+      binding: BindingsBuilder(
+        () {
+          return Get.lazyPut(
+            () => JsonPlaceholderCtl(),
           );
         },
       ),
