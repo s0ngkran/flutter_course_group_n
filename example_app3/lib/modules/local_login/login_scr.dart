@@ -12,6 +12,8 @@ class LoginScr extends StatelessWidget {
   Widget build(BuildContext context) {
     var c = Get.find<LoginCtl>();
     final TextEditingController tc = TextEditingController();
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('LoginScr'),
