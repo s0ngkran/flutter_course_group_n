@@ -1,10 +1,6 @@
-// ignore_for_file: use_build_context_synchronously
-
-
-// test
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'group_p/main_scr.dart';
 import 'pages/first_scr.dart';
 
 Future<void> main() async {
@@ -28,7 +24,8 @@ class MyApp extends StatelessWidget {
       // ),
       // getPages: AppPages.pages,
       // initialRoute: Routes.login,
-      home: FirstScr(),
+      // home: FirstScr(),
+      home: MainScr(),
     );
   }
 }
