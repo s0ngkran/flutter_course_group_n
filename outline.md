@@ -73,7 +73,7 @@ util
 firebase
  -> google auth 
  -> phone OTP
- -> passwordless with email link
+ -> [passwordless](passwordless) with email link
  -> deep link
  -> FCM -> noti
 
