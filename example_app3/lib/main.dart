@@ -20,12 +20,15 @@ import 'modules/todo/todo_scr.dart';
 import 'modules/ui_syntax/ui_syntax_scr.dart';
 import 'services/storage_service.dart';
 
+
 Future<void> main() async {
   MyStorage storage = MyStorage();
   await storage.init();
   Get.put(storage);
   Get.put(AppLife());
   Get.put(AppCtl());
+
+WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
   People(age: 0, name: '');
   Geo(lat: '0', lng: '0');
